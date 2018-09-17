@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩查询</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        *{
+            width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+        <div class="page-header">
+            <h1 style="text-align: center">成绩查询</h1>
+        </div>
+
+            <form action="{{ url_for('index') }}" method="POST">
+                <div class="input-group">
+                <input type="text" name="say_user" class="form-control" placeholder="用户名"><br>
+                <input type="text" name="say_pass" class="form-control" placeholder="密码"><br>
+                    </div>
+                <button class="btn btn-primary">提交</button>
+            </form>
+        </center>
+
+<table class="table">
+	<caption>成绩</caption>
+   <thead>
+      <tr>
+         <th>课程</th>
+         <th>分数</th>
+          <th>情况</th>
+      </tr>
+   </thead>
+   <tbody>
+    {% for say in says %}
+      <tr>
+         <td>{{ say['ke'] }}</td>
+         <td>{{ say['score'] }}</td>
+         <td>{{ say['ke_pass'] }}</td>
+      </tr>
+   {% endfor %}
+   </tbody>
+</table>
+        </table>
+    </center>
+</body>
+</html>
